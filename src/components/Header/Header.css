@@ -1,0 +1,12 @@
+.Header {
+  background-color: black;
+  color: white;
+}
+
+.Header-header {
+  display: flex;
+}
+
+.Header-logo {
+  width: 50px;
+}
