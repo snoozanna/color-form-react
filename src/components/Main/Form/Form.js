@@ -6,19 +6,27 @@ import "./Form.css";
 function Form(props) {
   const { useState } = React;
   const { register, handleSubmit, watch, errors } = useForm();
-  const [background, setBackground] = useState();
+  const [state, setState] = useState({
+    background: "#0e101c",
+    newColor: {
+      id: "",
+      favouriteColor: "",
+      reason: "",
+    },
+  });
 
   const onSubmit = (data) => {
     console.log(data);
-    const favColor = data.favouriteColor;
-    console.log("favcolor", favColor);
+    const newFavColor = setState(data);
+    console.log("favcolor", newFavColor);
+
     // addColor(data);
   }; // your form submit function which will invoke after successful validation
 
   // console.log(watch("reason")); // you can watch individual input by pass the name of the input
 
   return (
-    <div className="Form-wrapper" style={{ backgroundColor: background }}>
+    <div className="Form-wrapper" style={{ backgroundColor: state.background }}>
       <h2>Add fav colour</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Color</label>
