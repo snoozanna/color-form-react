@@ -3,3 +3,16 @@
   padding: 20px;
   display: flex;
 }
+
+.main-wrapper {
+  margin-block-end: 20px;
+  padding: 20px;
+}
+
+h1 {
+  /* font-weight: 100; */
+  color: aliceblue;
+  text-align: center;
+  padding-bottom: 10px;
+  /* mix-blend-mode: difference; */
+}

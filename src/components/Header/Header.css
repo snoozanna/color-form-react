@@ -1,12 +1,9 @@
 .Header {
-  background-color: black;
   color: white;
+  padding-top: 20px;
 }
 
 .Header-header {
   display: flex;
-}
-
-.Header-logo {
-  width: 50px;
+  justify-content: space-evenly;
 }

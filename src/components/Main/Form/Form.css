@@ -3,27 +3,31 @@ form {
   margin: 0 auto;
 }
 
-h1 {
-  font-weight: 100;
-  color: white;
+h2 {
+  color: aliceblue;
   text-align: center;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgb(79, 98, 148);
+  mix-blend-mode: difference;
 }
 
 .form {
-  background: #0e101c;
-  max-width: 400px;
+  max-width: 70%;
   margin: 0 auto;
 }
 
-p {
-  color: #bf1650;
+.form-wrapper {
+  margin-block-end: 20px;
+  padding: 20px;
+  border: white solid 3px;
 }
+
+/* .title-wrapper {
+  background-color: aliceblue;
+  padding: 5px;
+} */
 
 p::before {
   display: inline;
-  content: "⚠ ";
 }
 
 input {
@@ -89,11 +93,6 @@ input[type="submit"] {
   -webkit-appearance: none;
 }
 
-.App {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 button[type="button"] {
   display: block;
   appearance: none;
@@ -112,9 +111,8 @@ hr {
 button {
   display: block;
   appearance: none;
-  margin-top: 40px;
   border: 1px solid #333;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 4px;

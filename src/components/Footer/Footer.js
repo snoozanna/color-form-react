@@ -5,11 +5,7 @@ function Footer() {
   return (
     <div className="Footer">
       <footer className="Footer-footer">
-        <ul className="Footer-list">
-          <li className="Footer-item">About</li>
-          <li className="Footer-item">Something else</li>
-          <li className="Footer-item">Contact</li>
-        </ul>
+        <p className="Footer-item">Reset</p>
       </footer>
     </div>
   );

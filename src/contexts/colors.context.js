@@ -1,4 +1,4 @@
-//// not using this page currently 
+//// not using this page currently
 
 import React, { createContext, useState } from "react";
 import { useToasts } from "react-toast-notifications";
@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from "uuid";
 
 export const ColorsContext = createContext({
   addColor: () => {},
-  updatePet: () => {},
   deleteColor: () => {},
   error: null,
   colors: [],
@@ -23,29 +22,52 @@ export const ColorsProvider = (props) => {
       ...formData,
       _id: uuidv4(),
     };
-    setColors([...colors, newColors]);
-    addToast(`Saved ${newColor.title}`, {
+    console.log("new color", newColor);
+    setColors([...colors, newColor]);
+    addToast(`Saved ${newColor.favouriteColor}`, {
       appearance: "success",
     });
   };
 
-
-
-  const deleteColor = function (id) => {
-    // Get index
+  const changeColor = (id) => {
+    console.log("trying to change color");
     const index = colors.findIndex((color) => color._id === id);
-    const deletedColor = pets[index];
+    const newColor = colors[index];
 
     if (index === -1) {
-      addToast(`Error: Failed to delete pet id: ${id}`, {
+      addToast(`Error: Failed to change color id: ${id}`, {
         appearance: "error",
       });
       return;
     }
-    // recreate the Todos array without that Todo
-    const updatedColors = [...colors.slice(0, index), ...colors.slice(index + 1)];
+    const container = document.getElementById("mainContainer");
+    container.style.backgroundColor = newColor.favouriteColor;
+    console.log("container", container.style.backgroundColor);
+    console.log(newColor);
+    addToast(`Changed to ${newColor.favouriteColor}`, {
+      appearance: "success",
+    });
+  };
+
+  const deleteColor = async (id) => {
+    // Get index
+    console.log("trying to delete colour");
+    const index = colors.findIndex((color) => color._id === id);
+    const deletedColor = colors[index];
+
+    if (index === -1) {
+      addToast(`Error: Failed to delete color id: ${id}`, {
+        appearance: "error",
+      });
+      return;
+    }
+    // recreate the colors array without that color
+    const updatedColors = [
+      ...colors.slice(0, index),
+      ...colors.slice(index + 1),
+    ];
     setColors(updatedColors);
-    addToast(`Deleted ${deletedColor.title}`, {
+    addToast(`Deleted ${deletedColor.favouriteColor}`, {
       appearance: "success",
     });
   };
@@ -56,6 +78,7 @@ export const ColorsProvider = (props) => {
         colors,
         error,
         addColor,
+        changeColor,
         deleteColor,
       }}
     >

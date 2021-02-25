@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+  background-color: #800059;
+  /* background: repeating-linear-gradient(
+    #e66465,
+    #e66465 20px,
+    #e9ca4e 20px,
+    #e9ca4e 25px
+  ); */
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .App-logo {
@@ -14,7 +24,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

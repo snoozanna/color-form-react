@@ -1,58 +1,57 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ColorsContext } from "../../../../contexts/colors.context";
 import "./ListDisplay.css";
+import { gsap } from "gsap";
 
-const { useState } = React;
-const favColorData = [
-  {
-    _id: 1,
-    favouriteColor: "#2fca4e",
-    reason: "like it",
-  },
-  {
-    _id: 2,
-    favouriteColor: "#2b569c",
-    reason: "nice",
-  },
-  {
-    _id: 3,
-    favouriteColor: "#cb9625",
-    reason: "pretty",
-  },
-];
-
-function ListDisplay() {
-  const [colors, setColor] = useState(favColorData);
-  console.log("state", colors);
-
-  function deleteItem(id) {
-    console.log(`Deleting ${id}`);
-    const indexOfColor = colors.findIndex((color) => color._id === id);
-    const newColors = [
-      ...colors.slice(0, indexOfColor),
-      ...colors.slice(indexOfColor + 1),
-    ];
-    setColor(newColors);
-  }
-
-  function changeBackground(id) {
-    console.log(`Changing background ${id}`);
-  }
+const ListDisplay = () => {
+  // const [colors, setColor] = useState(favColorData);
+  const { colors, deleteColor, changeColor } = useContext(ColorsContext);
+  const colorHeart = document.getElementById("colorHeart");
+  // gsap.to(colorHeart, {
+  //   css: {
+  //     scale: 0.9,
+  //   },
+  //   duration: 1,
+  //   repeat: 5,
+  //   yoyo: true,
+  // });
 
   return (
     <>
-      <h1>Favourite Colour List</h1>
+      <div className="title-wrapper">
+        <h1>Favourite Colour List</h1>
+      </div>
       <ul className="color-list">
         {colors.map((color) => (
           <li className="color-item" key={color._id}>
-            <div className="color-box"> {color.favouriteColor} </div>
-            <p>Reason: {color.reason}</p>
-            <button>Choose</button>
-            <button onClick={() => deleteItem(color._id)}>Get rid</button>
+            <div className="color-heart-container">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100"
+                height="85"
+                style={{ fill: color.favouriteColor }}
+                onClick={() => changeColor(color._id)}
+              >
+                <path
+                  id="colorHeart"
+                  className="color-heart"
+                  d="M92.71 7.27c-9.71-9.69-25.46-9.69-35.18 0L50 14.79l-7.54-7.52C32.75-2.42 17-2.42 7.29 7.27s-9.71 25.41 0 35.1L50 85l42.71-42.63c9.72-9.69 9.72-25.41 0-35.1z"
+                />
+              </svg>
+            </div>
+            <div className="color-info-container">
+              <p className="color-name">Color: {color.favouriteColor} </p>
+              <p>Reason: {color.reason}</p>
+            </div>
+            <div className="btn-container">
+              <button onClick={() => changeColor(color._id)}>Choose</button>
+              <button onClick={() => deleteColor(color._id)}>Get rid</button>
+            </div>
           </li>
         ))}
       </ul>
     </>
   );
-}
+};
 
 export default ListDisplay;
