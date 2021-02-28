@@ -6,7 +6,7 @@ import "./Main.css";
 
 function Main(props) {
   const { useState } = React;
-  const [background, setBackground] = useState("#df628e");
+  const [background, setBackground] = useState("#800059;");
 
   function showValue() {
     let input = document.getElementById("colorInput");

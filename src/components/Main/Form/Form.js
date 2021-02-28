@@ -24,7 +24,7 @@ function Form(props) {
           id="colorInput"
           type="color"
           name="favouriteColor"
-          defaultValue=" ##df628e;"
+          defaultValue=" #800059;;"
           ref={register}
           onChange={props.callback}
         />
@@ -34,7 +34,7 @@ function Form(props) {
           ref={register({ required: true, maxLength: 10 })}
         />
         {errors.exampleRequired && <p>This field is required</p>}
-        <input type="submit" />
+        <input type="submit" className="btn" />
       </form>
     </div>
   );

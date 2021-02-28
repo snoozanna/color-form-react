@@ -42,8 +42,6 @@ export const ColorsProvider = (props) => {
     }
     const container = document.getElementById("mainContainer");
     container.style.backgroundColor = newColor.favouriteColor;
-    console.log("container", container.style.backgroundColor);
-    console.log(newColor);
     addToast(`Changed to ${newColor.favouriteColor}`, {
       appearance: "success",
     });
@@ -72,6 +70,16 @@ export const ColorsProvider = (props) => {
     });
   };
 
+  const resetForm = () => {
+    const colors = [];
+    setColors(colors);
+    const container = document.getElementById("mainContainer");
+    container.style.backgroundColor = "#800059";
+    addToast(`Reset complete`, {
+      appearance: "success",
+    });
+  };
+
   return (
     <ColorsContext.Provider
       value={{
@@ -80,6 +88,7 @@ export const ColorsProvider = (props) => {
         addColor,
         changeColor,
         deleteColor,
+        resetForm,
       }}
     >
       {props.children}
