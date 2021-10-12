@@ -19,7 +19,7 @@ h1 {
   .Main {
     display: flex;
     justify-content: space-evenly;
-    align-items: start;
+    align-items: flex-start;
   }
   .main-container {
     min-width: 60%;

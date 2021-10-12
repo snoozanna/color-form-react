@@ -12,7 +12,7 @@ export const ColorsContext = createContext({
 
 export const ColorsProvider = (props) => {
   const [colors, setColors] = useState([]);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const { addToast } = useToasts();
 
   const addColor = (formData) => {
@@ -82,7 +82,7 @@ export const ColorsProvider = (props) => {
     <ColorsContext.Provider
       value={{
         colors,
-        error,
+        // error,
         addColor,
         changeColor,
         deleteColor,
