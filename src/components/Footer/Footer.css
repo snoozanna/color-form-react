@@ -1,11 +1,7 @@
 .Footer {
-  background-color: black;
   color: white;
   padding: 20px;
-}
-
-.Footer-footer {
-  height: 3vw;
+  margin-bottom: 40px;
 }
 
 .Footer-list {

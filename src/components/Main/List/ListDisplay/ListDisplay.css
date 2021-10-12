@@ -10,52 +10,20 @@
 .color-item {
   color: #666;
   background-color: aliceblue;
+  border-radius: 5px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  outline: 1px solid black;
   padding: 10px;
-  width: 70%;
   margin-block-end: 20px;
 }
 
-.color-heart {
-  height: 8rem;
-  width: 8rem;
+.color-flex-item {
+  margin-inline-end: 5px;
 }
 
-.heart {
-  /* background-color: red; */
-  display: inline-block;
-  height: 30px;
-  margin: 0 10px;
-  position: relative;
-  top: 0;
-  transform: rotate(-45deg);
-  width: 30px;
-}
-
-.heart:before,
-.heart:after {
-  content: "";
-  /* background-color: red; */
-  border-radius: 50%;
-  height: 30px;
-  position: absolute;
-  width: 30px;
-}
-
-.heart:before {
-  top: -15px;
-  left: 0;
-}
-
-.heart:after {
-  left: 15px;
-  top: 0;
-}
-
-.color-box {
+.color-flex-item:last-child {
+  margin-inline-end: 0px;
 }
 
 .btn-container {
@@ -65,5 +33,7 @@
   justify-content: center;
 }
 
-.color-info-container {
+@media screen and (max-width: 770px) {
+  .color-heart-container {
+  }
 }

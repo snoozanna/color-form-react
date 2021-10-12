@@ -1,3 +1,10 @@
 .section-title {
   color: white;
 }
+
+@media (min-width: 800px) {
+  .title-wrapper {
+    max-width: 60%;
+    margin: auto;
+  }
+}

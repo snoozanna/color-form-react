@@ -1,12 +1,10 @@
 .Main {
-  background-color: cadetblue;
   padding: 20px;
-  display: flex;
 }
 
-.main-wrapper {
-  margin-block-end: 20px;
-  padding: 20px;
+.main-container {
+  margin: auto;
+  margin-block-end: 40px;
 }
 
 h1 {
@@ -15,4 +13,16 @@ h1 {
   text-align: center;
   padding-bottom: 10px;
   /* mix-blend-mode: difference; */
+}
+
+@media (min-width: 800px) {
+  .Main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+  }
+  .main-container {
+    min-width: 60%;
+    margin: inherit;
+  }
 }

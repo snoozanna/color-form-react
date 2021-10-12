@@ -16,9 +16,9 @@ h2 {
 }
 
 .form-wrapper {
-  margin-block-end: 20px;
   padding: 20px;
   border: white solid 3px;
+  border-radius: 5px;
 }
 
 /* .title-wrapper {

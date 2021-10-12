@@ -7,13 +7,11 @@ import "./Form.css";
 function Form(props) {
   const { useContext } = React;
   const { addColor } = useContext(ColorsContext);
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
     addColor(data);
-  }; // your form submit function which will invoke after successful validation
-
-  // console.log(watch("reason")); // you can watch individual input by pass the name of the input
+  };
 
   return (
     <div className="form-wrapper">
@@ -24,7 +22,7 @@ function Form(props) {
           id="colorInput"
           type="color"
           name="favouriteColor"
-          defaultValue=" #800059;;"
+          defaultValue=" #800059"
           ref={register}
           onChange={props.callback}
         />

@@ -1,9 +1,14 @@
 .Header {
   color: white;
-  padding-top: 20px;
+  padding-top: 3rem;
+  font-size: 1.3rem;
+  /* max-width: 80%; */
+  margin: auto;
 }
 
-.Header-header {
-  display: flex;
-  justify-content: space-evenly;
+@media (max-width: 800px) {
+  .title-wrapper {
+    max-width: 80%;
+    margin: auto;
+  }
 }

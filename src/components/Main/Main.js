@@ -13,12 +13,15 @@ function Main(props) {
     // console.log(input.value);
     setBackground(input.value);
   }
-  // return <div className="Main">{props.children}</div>;
   return (
     <>
-      <div className="main-wrapper">
+      <div className="Main">
         {/* <p>Parent State: {JSON.stringify(background)}</p> */}
-        <div id="mainContainer" style={{ backgroundColor: background }}>
+        <div
+          id="mainContainer"
+          className="main-container"
+          style={{ backgroundColor: background }}
+        >
           <Form callback={showValue} />
         </div>
         <List />

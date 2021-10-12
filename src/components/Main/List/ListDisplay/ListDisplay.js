@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { ColorsContext } from "../../../../contexts/colors.context";
 import "./ListDisplay.css";
-import { gsap } from "gsap";
+// import { gsap } from "gsap";
 
 const ListDisplay = () => {
   // const [colors, setColor] = useState(favColorData);
-  const { colors, deleteColor, changeColor } = useContext(ColorsContext);
-  const colorHeart = document.getElementById("colorHeart");
+  const { colors, deleteColor, changeColor, resetForm } =
+    useContext(ColorsContext);
+  // const colorHeart = document.getElementById("colorHeart");
   // gsap.to(colorHeart, {
   //   css: {
   //     scale: 0.9,
@@ -20,17 +21,22 @@ const ListDisplay = () => {
     <>
       <div className="title-wrapper">
         <h1>Favourite Colour List</h1>
+        <button className="resetButton btn" onClick={() => resetForm()}>
+          Reset
+        </button>
       </div>
       <ul className="color-list">
+        `
         {colors.map((color) => (
           <li className="color-item" key={color._id}>
-            <div className="color-heart-container">
+            <div className="color-flex-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="100"
                 height="85"
                 style={{ fill: color.favouriteColor }}
                 onClick={() => changeColor(color._id)}
+                className="color-heart-container"
               >
                 <path
                   id="colorHeart"
@@ -39,11 +45,11 @@ const ListDisplay = () => {
                 />
               </svg>
             </div>
-            <div className="color-info-container">
+            <div className="color-info-container color-flex-item">
               <p className="color-name">Color: {color.favouriteColor} </p>
               <p>Reason: {color.reason}</p>
             </div>
-            <div className="btn-container">
+            <div className="btn-container color-flex-item">
               <button onClick={() => changeColor(color._id)}>Choose</button>
               <button onClick={() => deleteColor(color._id)}>Get rid</button>
             </div>
