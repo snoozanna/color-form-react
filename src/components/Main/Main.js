@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import Form from "./Form/Form";
 import List from "./List/List";
 
 import "./Main.css";
 
-function Main(props) {
+function Main() {
   const { useState } = React;
   const [background, setBackground] = useState("#800059");
+  // const containerRef = useRef();
 
   function showValue(e) {
     let currentColor = e.target.value;
     setBackground(currentColor);
   }
+  // console.log("ref", containerRef);
   return (
     <>
       <div className="Main">
@@ -19,6 +21,7 @@ function Main(props) {
         <div
           id="mainContainer"
           className="main-container"
+          // ref={containerRef}
           style={{ backgroundColor: background }}
         >
           <Form callback={showValue} />

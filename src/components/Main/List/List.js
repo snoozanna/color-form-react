@@ -3,11 +3,10 @@ import "./List.css";
 
 import ListDisplay from "./ListDisplay/ListDisplay";
 
-function List(props) {
+function List() {
   return (
     <div className="list-container">
-      <ListDisplay items={props} />
-      {/* {subComponent} */}
+      <ListDisplay />
     </div>
   );
 }

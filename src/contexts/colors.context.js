@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 export const ColorsContext = createContext({
   addColor: () => {},
   deleteColor: () => {},
+  changeColor: () => {},
   error: null,
   colors: [],
 });
@@ -38,6 +39,8 @@ export const ColorsProvider = (props) => {
       });
       return;
     }
+    // TODO make a ref or pass as prop
+    //How to access the ref here?
     const container = document.getElementById("mainContainer");
     container.style.backgroundColor = newColor.favouriteColor;
     addToast(`Changed to ${newColor.favouriteColor}`, {
