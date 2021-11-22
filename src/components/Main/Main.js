@@ -1,14 +1,18 @@
-import React, { useRef } from "react";
+import React, { useContext } from "react";
 import Form from "./Form/Form";
 import List from "./List/List";
+
+import { ColorsContext } from "./../../contexts/colors.context";
 
 import "./Main.css";
 
 function Main() {
-  const { useState } = React;
-  const [background, setBackground] = useState("#800059");
+  // const { useState } = React;
+  const { background, setBackground } = useContext(ColorsContext);
+  // const [background, setBackground] = useState("#800059");
   // const containerRef = useRef();
 
+  console.log("background", background);
   function showValue(e) {
     let currentColor = e.target.value;
     setBackground(currentColor);

@@ -9,11 +9,14 @@ export const ColorsContext = createContext({
   changeColor: () => {},
   error: null,
   colors: [],
+  background: [],
 });
 
 export const ColorsProvider = (props) => {
   const [colors, setColors] = useState([]);
+  const [background, setBackground] = useState("#800059");
   // const [error, setError] = useState(null);
+
   const { addToast } = useToasts();
 
   const addColor = (formData) => {
@@ -39,10 +42,8 @@ export const ColorsProvider = (props) => {
       });
       return;
     }
-    // TODO make a ref or pass as prop
-    //How to access the ref here?
-    const container = document.getElementById("mainContainer");
-    container.style.backgroundColor = newColor.favouriteColor;
+
+    setBackground(newColor.favouriteColor);
     addToast(`Changed to ${newColor.favouriteColor}`, {
       appearance: "success",
     });
@@ -74,8 +75,7 @@ export const ColorsProvider = (props) => {
   const resetForm = () => {
     const colors = [];
     setColors(colors);
-    const container = document.getElementById("mainContainer");
-    container.style.backgroundColor = "#800059";
+    setBackground("#800059");
     addToast(`Reset complete`, {
       appearance: "success",
     });
@@ -85,11 +85,13 @@ export const ColorsProvider = (props) => {
     <ColorsContext.Provider
       value={{
         colors,
+        background,
         // error,
         addColor,
         changeColor,
         deleteColor,
         resetForm,
+        setBackground,
       }}
     >
       {props.children}
